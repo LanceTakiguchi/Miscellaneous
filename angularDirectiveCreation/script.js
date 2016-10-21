@@ -8,15 +8,11 @@ Prompt: https://docs.google.com/presentation/d/1KbEfzhGO-Gj9bDaqwAIlwGCbXymO6J0F
 */
 var app = angular.module("directiveApp", []);
 
-app.directive("studentList", function(){
+app.directive("student", function(){
   return {
     restrict: 'AE',
-    templateUrl: 'student-form-template.html'
-  }
-});
-app.directive("studentListTwo", function(){
-  return {
-    restrict: 'AE',
-    templateUrl: 'student-list-template.html'
+    templateUrl: function(elem, attr){
+      return 'student-' + attr.type + '-template.html';
+    }
   }
 });
