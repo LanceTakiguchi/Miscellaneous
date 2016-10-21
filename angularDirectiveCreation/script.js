@@ -11,10 +11,12 @@ var app = angular.module("directiveApp", []);
 app.directive("student", function(){
   return {
     restrict: 'AE',
+    //** Create different types of directive to inject
     templateUrl: function(elem, attr){
       return 'student-' + attr.type + '-template.html';
     },
-        controller: function(){
+    //** Add in students from a JS array into a controller
+       controller: function(){
         this.studentArr = [
           {name: 'Bruce Wayne',
            course: 'Economics',
