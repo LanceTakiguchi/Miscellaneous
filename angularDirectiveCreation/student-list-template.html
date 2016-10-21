@@ -14,25 +14,11 @@ Prompt: https://docs.google.com/presentation/d/1KbEfzhGO-Gj9bDaqwAIlwGCbXymO6J0F
       <th>Course</th>
       <th>Grade</th>
     </tr>
-    <tr>
-      <td>Bruce Wayne</td>
-      <td>Econmics</td>
-      <td>94</td>
-    </tr>
-    <tr>
-      <td>Clark Kent</td>
-      <td>Creative Writing</td>
-      <td>81</td>
-    </tr>
-    <tr>
-      <td>Hal Jordan</td>
-      <td>Avionics</td>
-      <td>88</td>
-    </tr>
-    <tr>
-      <td>Barry Allen</td>
-      <td>Forensic Science</td>
-      <td>98</td>
+    <tr ng-repeat='student in sc.studentArr'>
+      <td>{{ student.name }}</td>
+      <td>{{ student.course }}</td>
+      <td>{{ student.grade }}</td>
     </tr>
   </tbody>
 </table>
+
