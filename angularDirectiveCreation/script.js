@@ -17,6 +17,23 @@ app.directive("student", function(){
     },
     //** Add in students from a JS array into a controller
        controller: function(){
+       	this.name = "";
+       	this.course = "";
+       	this.grade = "";
+       	this.add = function(){
+       		var a = {
+       			name: this.name,
+       			course: this.course,
+       			grade: this.grade
+       		};
+       		this.studentArr.push(a);
+       		this.clear();
+       	}
+       	this.clear = function(){
+       		this.name = "";
+       		this.course = "";
+       		this.grade = "";
+       	}
         this.studentArr = [
           {name: 'Bruce Wayne',
            course: 'Economics',
