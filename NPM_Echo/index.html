@@ -1,0 +1,45 @@
+<!-- *********** 
+Project Name: Websocket's Echo
+File Name: index.html
+Author: Lance Takiguchi
+Date: 11/01/2016 Time: 12:00 
+Objective: Using nodejs-websockets, create a basic echo server
+Prompt: https://docs.google.com/presentation/d/16x-cHfDy-0ZS2I0BwMwpnpqlIII-0ptfjhlAvE4hi40/pub?start=false&loop=false&delayms=3000&slide=id.g12b2ec275e_0_0 
+ *********** -->
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8"> 
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+		<meta name="keywords" content="HTML, Lance Takiguchi, NPM, node.js, node, websockets, echo, server, chat">
+		<meta name="author" content="Lance Takiguchi">
+		<meta name="description" content="Using nodejs-websockets, create a basic echo server">
+		<meta name="date" content="11/01/16, November 11, 2016">
+		<title> Echo Client </title>
+
+		<script>
+			// Include websocket's resource 
+			var ws = require("nodejs-websockets");
+
+			// Connection socket
+			var server = ws.createServer(function(conn){
+				// Stuff for your server here
+				
+				// Receiving message handler
+				conn.on("text", function(str){
+					// Basic Echo; Take what you get, send it back.
+					console.log("Received: " + str);
+					conn.sendText("you said: " + str);
+				})
+
+				conn.on("close", function(code, reason){
+					console.log("Connection Closed: " + reason);
+				});
+						
+			}).listen(8001); // Port to listen in to
+		</script>
+	</head>
+	<body>
+		<h1> Welcome to Chat Mirror </h1>
+	</body>	
+</html>
